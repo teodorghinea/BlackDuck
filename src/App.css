@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.typed-out{
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  animation: 
+  typing 1s steps(15, end) forwards;
+  font-size: 1.6rem;
+  width: 0;
+}
+
+.subtitle{
+  overflow: hidden;
+  font-size: 0.8em;
+  white-space: nowrap;
+  animation:
+  subtitle 0.5s steps(5, end) forwards;
+  animation-delay: 1s
+  ;
+}
+
+@keyframes subtitle{
+    from{opacity: 0%}
+    to {opacity: 100%;}
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 15% }
+}
+
