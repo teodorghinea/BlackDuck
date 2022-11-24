@@ -6,8 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Duck</title>
 </head>
+
 <body>
-    <button onclick="alert('Hello bitches')"> Say hello</button>
-    <h1>This was done so easy!</h1>
+    <div id="fox-button",style="margin: 50px 0px 0px 50px;">
+        <button
+            style="
+                background-color:brown; 
+                color:white;
+                height:50px;
+                border-radius:5px;
+                width:100px;
+                border-color:green; 
+                border-style: solid;
+                cursor: pointer;
+                ",
+            onclick="getFoxPicture('fox-button', 'result')"
+        >
+            Click here
+        </button>
+        <div id="result">Waiting for you to click...</div>
+    </div>
 </body>
+
+<script type="text/javascript" src="scripts/Weather/weather.js"></script>
+
 </html>
