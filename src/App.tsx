@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import qs from "qs";
+import { Buffer } from "buffer";
 import logo from "./logo.svg";
 import "./App.css";
 import {
@@ -21,10 +21,7 @@ function App() {
     "https://api.twilio.com/2010-04-01/Accounts/ACb2631d76f547d9f436d510b34158966b/Messages.json";
 
   var username = "ACb2631d76f547d9f436d510b34158966b";
-  var password = "f77812bc9c5b2742c0b3b8f3020876d7";
-
-  var authkey =
-    "Basic QUNiMjYzMWQ3NmY1NDdkOWY0MzZkNTEwYjM0MTU4OTY2YjpmNzc4MTJiYzljNWIyNzQyYzBiM2I4ZjMwMjA4NzZkNw==";
+  var password = "28843160837c89610f55b1f4762b7030";
 
   const handleSendSmsMessage = () => {
     if (!message) {
@@ -43,20 +40,24 @@ function App() {
       To: "+40748146443",
     };
 
+    const bufferResult = btoa(username + ":" + password);
+
     const options = {
       method: "POST",
       data: formdata,
       headers: {
-        Authorization: authkey,
+        Authorization: "Basic " + bufferResult,
         "Content-Type": "application/x-www-form-urlencoded",
       },
       url: url,
     };
 
-    axios(options).catch((e) => {
-      alert("Mesajul nu a putut fi trimis");
-      console.log(e);
-    });
+    axios(options)
+      .catch((e) => {
+        alert("Mesajul nu a putut fi trimis");
+        console.log(e);
+      })
+      .then(() => alert("Mesajul a fost trimis"));
   };
 
   const handleInputChange = (msg: string) => {
