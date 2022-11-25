@@ -27,8 +27,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  font-size: calc(5+2vmin);
-  white-space: nowrap;
+  font-size: 0.8sem ;
+
   animation:
   subtitle 0.5s steps(30, end) forwards;
   animation-delay: 1s

@@ -12,9 +12,7 @@ import {
 import axios from "axios";
 
 function App() {
-  const [message, setMessage] = useState(
-    "Salut! Am parcat pe locul tau. Numarul meu este: "
-  );
+  const [message, setMessage] = useState("");
   const maxMessageLength = 100;
 
   var url =
@@ -33,6 +31,8 @@ function App() {
       alert("Mesajul este prea long.");
       return;
     }
+
+    setMessage("Am parcat pe locul tau!" + message);
 
     var formdata = {
       Body: message,
@@ -80,7 +80,10 @@ function App() {
 
             <FormControl>
               <Input
+                width="70%"
+                type={"number"}
                 value={message}
+                placeholder="Introduce numarul de telefon ... "
                 onChange={(input) => handleInputChange(input.target.value)}
               />
               <FormHelperText color="white">
